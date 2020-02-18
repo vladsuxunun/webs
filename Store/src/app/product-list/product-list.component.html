@@ -1,0 +1,42 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+   <h3>
+    <a [href] ="product.url" [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+ <h4>{{ product.price + "$"}}</h4>
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+<!-- <p *ngIf = "product.tag" >
+  <div*ngFor="let product of tag">
+   {{product.tag}}
+   </p> -->
+
+ <div id = "wpbutton" position="relative" >
+  <img class="impgs" [src]="product.image" alt="error" width='200' >
+  <h5>{{product.rating +" stars" }}</h5>
+
+ <button (click)="share()">
+   <a href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="" class="wa_btn wa_btn_s" > Share via whatsapp</a>
+ </button>
+ </div>
+ 
+ <div id="tgbutton">
+ <button (click)="share()">
+  <a [href]="https://web.whatsapp.com/send?text='+product.url"  target="_blank"  rel="noopener noreferrer" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" (click)="share()">
+    Share via telegram
+  </a>
+  </button>
+ </div>
+
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
